@@ -17,11 +17,17 @@ class FibSpec extends FlatSpec with Matchers {
       (6, 8)
     )
 
-  it should "work" in {
-    val fib = new Fib()
+  val implementations =
+    Table(
+      ("implementation"),
+      (new SimpleButInefficient())
+    )
 
-    forAll(pairs) { (n: Int, f: Int) =>
-      fib.calculateNthSequence(n) should equal(f)
+  it should "work" in {
+    forAll(implementations) { (implementation: FibonacciImplementation) =>
+      forAll(pairs) { (n: Int, f: Int) =>
+        implementation.calculateNthSequence(n) should equal(f)
+      }
     }
   }
 }
