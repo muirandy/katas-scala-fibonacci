@@ -8,7 +8,8 @@ class FibSpec extends FlatSpec with Matchers {
   val pairs =
     Table(
       ("n", "f"),
-      (0, 0)
+      (0, 0),
+      (1, 1)
     )
 
   it should "work" in {
