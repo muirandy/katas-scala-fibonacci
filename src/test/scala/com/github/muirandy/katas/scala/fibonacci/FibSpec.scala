@@ -23,11 +23,15 @@ class FibSpec extends FlatSpec with Matchers {
       (new SimpleButInefficient())
     )
 
-  it should "work" in {
+  it should "work for all implementations" in {
     forAll(implementations) { (implementation: FibonacciImplementation) =>
-      forAll(pairs) { (n: Int, f: Int) =>
-        implementation.calculateNthSequence(n) should equal(f)
-      }
+      allPairsShouldWork(implementation)
+    }
+  }
+
+  private def allPairsShouldWork(implementation: FibonacciImplementation) = {
+    forAll(pairs) { (n: Int, f: Int) =>
+      implementation.calculateNthSequence(n) should equal(f)
     }
   }
 }
