@@ -9,7 +9,9 @@ class FibSpec extends FlatSpec with Matchers {
     Table(
       ("n", "f"),
       (0, 0),
-      (1, 1)
+      (1, 1),
+      (2, 1),
+      (3, 2)
     )
 
   it should "work" in {
