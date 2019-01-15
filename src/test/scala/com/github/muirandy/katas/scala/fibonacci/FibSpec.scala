@@ -36,5 +36,8 @@ class FibSpec extends FlatSpec with Matchers {
       forAll(easyPairs) { (n: Int, f: Long) =>
         implementation.calculateNthSequence(n) should equal(f)
       }
+      forAll(bigPairs) { (n: Int, f: Long) =>
+        implementation.calculateNthSequence(n) should equal(f)
+      }
   }
 }
