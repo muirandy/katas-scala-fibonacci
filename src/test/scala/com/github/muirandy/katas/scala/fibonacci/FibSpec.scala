@@ -11,12 +11,12 @@ class FibSpec extends FlatSpec with Matchers {
       (0, 0L),
       (1, 1L),
       (2, 1L),
-//      (3, 2L),
-//      (4, 3L),
-//      (5, 5L),
-//      (6, 8L),
-//      (20, 6765L),
-//      (25, 75025L)
+      (3, 2L),
+      (4, 3L),
+      (5, 5L),
+      (6, 8L),
+      (20, 6765L),
+      (25, 75025L)
     )
 
   val bigPairs =

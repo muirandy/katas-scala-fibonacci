@@ -1,2 +1,2 @@
 #!/bin/bash
-./test && ./commit || ./revert
+scripts/test && scripts/commit || scripts/revert
