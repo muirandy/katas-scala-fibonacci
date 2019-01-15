@@ -5,33 +5,36 @@ import org.scalatest.prop.TableDrivenPropertyChecks._
 
 class FibSpec extends FlatSpec with Matchers {
 
-  val pairs =
+  val easyPairs =
     Table(
       ("n", "f"),
-      (0, 0),
-      (1, 1),
-      (2, 1),
-      (3, 2),
-      (4, 3),
-      (5, 5),
-      (6, 8)
+      (0, 0L),
+      (1, 1L),
+//      (2, 1L),
+//      (3, 2L),
+//      (4, 3L),
+//      (5, 5L),
+//      (6, 8L),
+//      (20, 6765L),
+//      (25, 75025L)
     )
 
-  val implementations =
+  val bigPairs =
     Table(
-      ("implementation"),
-      (new SimpleButInefficient())
+      ("n", "f"),
+      (50, 12586269025L)
     )
 
-  it should "work for all implementations" in {
-    forAll(implementations) { (implementation: FibonacciImplementation) =>
-      allPairsShouldWork(implementation)
+  it should "inefficient implementation should work" in {
+    forAll(easyPairs) { (n: Int, f: Long) =>
+      new SimpleButInefficient().calculateNthSequence(n) should equal(f)
     }
   }
 
-  private def allPairsShouldWork(implementation: FibonacciImplementation) = {
-    forAll(pairs) { (n: Int, f: Int) =>
-      implementation.calculateNthSequence(n) should equal(f)
-    }
+  it should "work for efficient implementations" in {
+    val implementation = new Efficient()
+      forAll(easyPairs) { (n: Int, f: Long) =>
+        implementation.calculateNthSequence(n) should equal(f)
+      }
   }
 }
