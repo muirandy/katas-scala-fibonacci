@@ -10,7 +10,7 @@ class FibSpec extends FlatSpec with Matchers {
       ("n", "f"),
       (0, 0L),
       (1, 1L),
-//      (2, 1L),
+      (2, 1L),
 //      (3, 2L),
 //      (4, 3L),
 //      (5, 5L),
