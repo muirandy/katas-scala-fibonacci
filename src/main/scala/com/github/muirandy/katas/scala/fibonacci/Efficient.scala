@@ -8,14 +8,12 @@ class Efficient {
     case _ => return calc(i)
   }
 
-
   def calc(i: Int): BigInt = {
     var allPairs = List[(BigInt,BigInt)]()
     allPairs = (BigInt(0), BigInt(1)) :: (BigInt(0), BigInt(0)) :: allPairs
 
-    for (index <- 2 to i) {
-      allPairs = calculateNextPair(allPairs) :: allPairs
-    }
+    for (index <- 2 to i)
+      allPairs = calculateNextPair(allPairs) :: allPairs.head :: Nil
 
     return allPairs.head._2
   }
