@@ -56,5 +56,6 @@ class FibSpec extends FlatSpec with Matchers {
   it should "work for Dynamic Programming Memoization implementation" in {
     val implementation = new MemoizationImplementation()
     implementation.calculateNthSequence(0) should equal (0)
+    implementation.calculateNthSequence(1) should equal (1)
   }
 }

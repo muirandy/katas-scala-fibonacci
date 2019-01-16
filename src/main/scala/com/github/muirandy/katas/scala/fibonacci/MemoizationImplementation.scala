@@ -4,5 +4,6 @@ class MemoizationImplementation {
 
   def calculateNthSequence(i: Int): BigInt = i match {
     case 0 => return BigInt(0)
+    case 1 => return BigInt(1)
   }
 }
