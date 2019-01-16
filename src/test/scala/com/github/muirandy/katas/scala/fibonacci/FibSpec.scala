@@ -36,7 +36,7 @@ class FibSpec extends FlatSpec with Matchers {
     }
   }
 
-  it should "work for efficient implementations" in {
+  it should "work for Dynamic Programming Tabulation implementation" in {
     val implementation = new DynamicProgrammingTabulationImplementation()
     forAll(easyPairs) { (n: Int, f: BigInt) =>
       implementation.calculateNthSequence(n) should equal(f)
@@ -51,5 +51,10 @@ class FibSpec extends FlatSpec with Matchers {
     val result: String = implementation.calculateNthSequence(1000000).toString()
     result.startsWith("19532821287077") shouldBe true
     result.endsWith("96526838242546875") shouldBe true
+  }
+
+  it should "work for Dynamic Programming Memoization implementation" in {
+    val implementation = new MemoizationImplementation()
+    implementation.calculateNthSequence(0) should equal (0)
   }
 }
