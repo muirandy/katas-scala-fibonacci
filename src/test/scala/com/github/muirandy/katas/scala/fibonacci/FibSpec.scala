@@ -37,7 +37,7 @@ class FibSpec extends FlatSpec with Matchers {
   }
 
   it should "work for efficient implementations" in {
-    val implementation = new Efficient()
+    val implementation = new DynamicProgrammingTabulationImplementation()
     forAll(easyPairs) { (n: Int, f: BigInt) =>
       implementation.calculateNthSequence(n) should equal(f)
     }
@@ -47,7 +47,7 @@ class FibSpec extends FlatSpec with Matchers {
   }
 
   it should "be able to calculate the millionth number in the fibonacci sequence" in {
-    val implementation = new Efficient()
+    val implementation = new DynamicProgrammingTabulationImplementation()
     val result: String = implementation.calculateNthSequence(1000000).toString()
     result.startsWith("19532821287077") shouldBe true
     result.endsWith("96526838242546875") shouldBe true
